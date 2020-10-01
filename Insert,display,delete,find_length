@@ -1,8 +1,8 @@
 /******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
+Write a program for 
+ Appending an element to the linked list, displaying all the elements, inserting at the end, 
+ insert at the begining, inserting anywhere, delete element from the end, delete from the
+ begining,delete from anywhere, find the length of a LL.
 
 *******************************************************************************/
 
