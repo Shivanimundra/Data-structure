@@ -6,6 +6,8 @@ Write a program for
 
 *******************************************************************************/
 
+
+
 #include <stdio.h>
 #include <stdlib.h>
 int count=0;
@@ -16,12 +18,28 @@ struct node
 };
 struct node* root;
 struct node* temp;
-struct node* new;
-void delete()
+struct node* new,*a;
+void delete(int position)
 {
     struct node* head;
     head=temp;
+    position--;
+    while(--position)
+    {
+      head=head->link;
+    }
     head->link=head->link->link;
+}
+int length()
+{
+    struct node* head;
+    head=temp;
+    while(head!=NULL)
+    {
+        head=head->link;
+        count++;
+    }
+    return count;
 }
 void display()
 {
@@ -32,37 +50,44 @@ void display()
     root=root->link;
   }
 }
-void insert()
+void insert(int position)
 {
     struct node* head;
     head = temp;
-    new->link=temp->link;
+    position--;
+    while(--position)
+    {
+      head=head->link;   
+    }
+    a=head->link;
     head->link=new;
+    new->link=a;
 }
 void insert_end()
 {
     struct node* head;
     head=temp;
-    head->link->link->link=new;
+    int c=length();
+    while(--c)
+    {
+        head=head->link;
+    }
+    head->link=new;
     new->link=NULL;
 }
 void delete_end()
 {
     struct node* head;
     head=temp;
-    head->link->link->link=NULL;
-}
-void length()
-{
-    struct node* head;
-    head=temp;
-    while(head!=NULL)
+    int c=length();
+    c--;
+    while(--c)
     {
-        head=head->link;
-        count++;
+       head=head->link;
     }
-    printf("%d",count);
+    head->link=NULL;
 }
+
 void insert_begining()
 {
     struct node *head;
@@ -73,7 +98,7 @@ void insert_begining()
 void delete_begining()
 {
     struct node *head;
-    head=temp;               
+    head=temp;
 }
 int main()
 {
@@ -88,15 +113,26 @@ int main()
     second->link=third;
     third->data=3;
     third->link = NULL;
-    
-    insert();
-    display();
-    delete();
-    //delete_end();
+    insert(2);
+    //insert_end();
+    //display();
+    delete(2);
+   //delete_end();
     //length();
     display();
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
