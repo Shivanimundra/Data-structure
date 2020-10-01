@@ -1,0 +1,41 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+int top=0;
+int stack[4];
+void push(int i)
+{
+    stack[top++]=i;
+}
+void pop()
+{
+    if(top!=0)
+    {
+        top--;
+    }
+    
+}
+void display()
+{
+    for(int j=top-1;j>=0;j--)
+    {
+       printf("%d\n",stack[j]); 
+    }
+}
+int main()
+{
+   
+  push(1);
+  push(2);
+  display();
+  //pop();
+  //display();
+    return 0;
+}
+

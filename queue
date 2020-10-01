@@ -1,0 +1,57 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+int top=0,x=0;
+int queue[4];
+void insert(int i)
+{
+    if(top<4)
+    {
+        queue[top++]=i;
+    }
+    else
+    {
+      printf("overflow\n");
+    }
+    
+}
+void display()
+{
+    //j=x;
+    for(int j=0;j<top;j++)
+    {
+        printf("%d\n",queue[j]);
+    }
+}
+void delete()
+{
+   for(int n=0;n<4;n++)
+   {
+       queue[n]=queue[n+1];
+   }
+   top--;
+}
+int main()
+{
+    insert(1);
+    insert(2);
+    insert(3);
+    insert(4);
+    //display();
+    //delete();
+    //delete();
+    //display();
+    insert(5);
+    //display();
+   // delete();
+     //delete();
+     display();
+    return 0;
+}
+

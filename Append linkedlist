@@ -1,0 +1,107 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+int count=0;
+struct node
+{
+    int data;
+    struct node* link;
+};
+struct node* root;
+struct node* temp;
+struct node* new;
+void delete()
+{
+    struct node* head;
+    head=temp;
+    head->link=head->link->link;
+}
+void display()
+{
+  root=temp;
+  while(root!=NULL)
+  {
+    printf("%d\n",root->data);
+    root=root->link;
+  }
+}
+void insert()
+{
+    struct node* head;
+    head = temp;
+    new->link=temp->link;
+    head->link=new;
+}
+void insert_end()
+{
+    struct node* head;
+    head=temp;
+    head->link->link->link=new;
+    new->link=NULL;
+}
+void delete_end()
+{
+    struct node* head;
+    head=temp;
+    head->link->link->link=NULL;
+}
+void length()
+{
+    struct node* head;
+    head=temp;
+    while(head!=NULL)
+    {
+        head=head->link;
+        count++;
+    }
+    printf("%d",count);
+}
+void insert_begining()
+{
+    struct node *head;
+    head=new;
+    head->link=temp;
+    printf("%d\n",head->data);
+}
+void delete_begining()
+{
+    struct node *head;
+    head=temp;
+}
+int main()
+{
+    temp = (struct node*)malloc(sizeof(struct node)); 
+    struct node* second = (struct node*)malloc(sizeof(struct node)); 
+    struct node* third = (struct node*)malloc(sizeof(struct node)); 
+    new = (struct node*)malloc(sizeof(struct node));
+    new->data=4;
+    temp->data=1;
+    temp->link = second;
+    second->data=2;
+    second->link=third;
+    third->data=3;
+    third->link = NULL;
+    
+    insert();
+    display();
+    delete();
+    //delete_end();
+    //length();
+    display();
+    return 0;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h> 
+struct node
+{
+    int data;
+    struct node* link;
+}*prev,*cur,*next,*head,*new;
+
+int main()
+{
+    struct node* first=(struct node*)malloc(sizeof(struct node*));
+    struct node* second=(struct node*)malloc(sizeof(struct node*));
+    struct node* third=(struct node*)malloc(sizeof(struct node*));
+    struct node* fourth=(struct node*)malloc(sizeof(struct node*));
+    struct node* fifth=(struct node*)malloc(sizeof(struct node*));
+    head=first;
+    first->link=second;
+    second->link=third;
+    third->link=fourth;
+    fourth->link=fifth;
+    fifth->link=NULL;
+    prev=head;
+    first->data=1;
+    second->data=2;
+    third->data=3;
+    fourth->data=4;
+    fifth->data=5;
+    cur=prev->link;
+    next=cur->link;
+    while(next!=NULL)    // if next is not null 
+    {
+        cur->link=prev;  
+        prev=cur;
+        cur=next;
+        next=next->link;
+    }
+    cur->link=prev;
+    head->link=NULL;
+    head=cur;
+    new=head;
+    while(new!=NULL)
+    {
+      printf("%d\n",new->data);
+      new=new->link;
+      
+    }
+    
+    return 0;
+}
