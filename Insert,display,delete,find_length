@@ -73,7 +73,7 @@ void insert_begining()
 void delete_begining()
 {
     struct node *head;
-    head=temp;
+    head=temp;               
 }
 int main()
 {
