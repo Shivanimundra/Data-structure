@@ -1,0 +1,60 @@
+/******************************************************************************
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+    int data;
+    struct node* next;
+};
+int main()
+{
+    int x;
+    printf("enter a value of x= ");
+    scanf("%d",&x);
+    struct node* first=(struct node*)malloc(sizeof(struct node*));
+    struct node* second=(struct node*)malloc(sizeof(struct node*)); 
+    struct node* third=(struct node*)malloc(sizeof(struct node*));
+    struct node* fourth=(struct node*)malloc(sizeof(struct node*));
+    struct node* fifth=(struct node*)malloc(sizeof(struct node*));
+    first->data=8;
+    second->data=4;
+    third->data=3;
+    fourth->data=9;
+    fifth->data=1;
+    first->next=second;
+    second->next=third;
+    third->next=fourth;
+    fourth->next=fifth;
+    fifth->next=NULL;
+    struct node* head=first,*root=first,*prev;
+    if(root->data>x)
+    {
+        root=root->next;
+    }
+    head=root;
+    while(head->next!=NULL)
+    {
+        if(head->data>x)
+        {
+            prev->next=head->next;
+        }
+        else
+        {
+            prev=head;
+        }
+        head=head->next;
+    }
+    if(head->data>x)
+    {
+        prev->next=NULL;
+    }
+    while(root)
+    {
+        printf("%d\n",root->data);
+        root=root->next;
+    }
+    return 0;
+}
+
+
